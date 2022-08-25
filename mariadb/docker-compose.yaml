@@ -1,0 +1,29 @@
+version: '3.8'
+
+networks:
+  mariadb_net:
+    driver: bridge
+
+services:
+
+  mariadb:
+    image: mariadb:10.9.2-jammy
+    restart: always
+    ports:
+      - 3306:3306
+    networks:
+      - mariadb_net
+    environment:
+      MYSQL_ROOT_PASSWORD: ${root_password}
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    restart: always
+    depends_on:
+      - mariadb
+    ports:
+      - 8080:80
+    networks:
+      - mariadb_net
+    environment:
+      - PMA_ARBITRARY=1
