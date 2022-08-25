@@ -10,6 +10,7 @@ volumes:
 services:
 
   mongo:
+    container_name: mongo
     image: mongo:6.0.1-focal
     restart: always
     ports:
@@ -23,8 +24,11 @@ services:
       - mongo_vol:/data/db
 
   mongo-express:
-    image: mongo-express
+    container_name: mongo-express
+    image: mongo-express:1.0.0-alpha.4
     restart: always
+    depends_on:
+      - mongo
     ports:
       - 8081:8081
     networks:
