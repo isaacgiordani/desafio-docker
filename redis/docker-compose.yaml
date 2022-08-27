@@ -1,0 +1,34 @@
+version: '3.8'
+
+networks:
+  redis_net:
+    driver: bridge
+
+volumes:
+  redis_vol:
+
+services:
+
+  redis:
+    container_name: redis
+    hostname: redis
+    image: redis:7.0.4
+    restart: always
+    ports:
+      - 6379:6379
+    networks:
+      - redis_net
+    volumes:
+      - redis_vol:/usr/local/etc/redis
+
+  redis-commander:
+      container_name: redis-commander
+      hostname: redis-commander
+      image: rediscommander/redis-commander:latest
+      restart: always
+      ports:
+        - "8084:8081"
+      networks:
+        - redis_net
+      environment:
+        - REDIS_HOSTS=local:redis:6379
