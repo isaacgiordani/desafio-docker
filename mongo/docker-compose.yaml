@@ -17,11 +17,11 @@ services:
       - 27017:27017
     networks:
       - mongo_net
+    volumes:
+      - mongo_vol:/data/db
     environment:
       MONGO_INITDB_ROOT_USERNAME: ${username}
       MONGO_INITDB_ROOT_PASSWORD: ${password}
-    volumes:
-      - mongo_vol:/data/db
 
   mongo-express:
     container_name: mongo-express

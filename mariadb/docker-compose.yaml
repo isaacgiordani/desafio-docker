@@ -4,25 +4,36 @@ networks:
   mariadb_net:
     driver: bridge
 
+volumes:
+  mariadb_mysql_vol:
+  mariadb_mysqld_vol:
+
 services:
 
   mariadb:
+    container_name: mariadb
     image: mariadb:10.9.2-jammy
     restart: always
     ports:
       - 3306:3306
     networks:
       - mariadb_net
+    volumes:
+      - mariadb_mysql_vol:/var/lib/mysql
+      - mariadb_mysqld_vol:/var/run/mysqld
     environment:
-      MYSQL_ROOT_PASSWORD: ${root_password}
+      MARIADB_ROOT_PASSWORD: ${MARIADB_ROOT_PASSWORD}
+      MARIADB_USER: ${MARIADB_USER}
+      MARIADB_PASSWORD: ${MARIADB_PASSWORD}
 
   phpmyadmin:
+    container_name: phpmyadmin
     image: phpmyadmin:latest
     restart: always
     depends_on:
       - mariadb
     ports:
-      - 8080:80
+      - 8082:80
     networks:
       - mariadb_net
     environment:

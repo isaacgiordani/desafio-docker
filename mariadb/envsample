@@ -1,1 +1,3 @@
-root_password="senharoot"
+MARIADB_ROOT_PASSWORD="senharoot"
+MARIADB_USER="isaac"
+MARIADB_PASSWORD="teste"
