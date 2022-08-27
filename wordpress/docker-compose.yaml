@@ -5,26 +5,10 @@ networks:
     driver: bridge
 
 volumes:
-  wordpress:
   db:
+  wordpress:
 
 services:
-
-  wordpress:
-    container_name: wordpress
-    image: wordpress
-    restart: always
-    ports:
-      - 8080:80
-    networks:
-      - wordpress_net
-    environment:
-      WORDPRESS_DB_HOST: ${WORDPRESS_DB_HOST}
-      WORDPRESS_DB_USER: ${WORDPRESS_DB_USER}
-      WORDPRESS_DB_PASSWORD: ${WORDPRESS_DB_PASSWORD}
-      WORDPRESS_DB_NAME: ${WORDPRESS_DB_NAME}
-    volumes:
-      - wordpress:/var/www/html
 
   db:
     container_name: db
@@ -32,10 +16,28 @@ services:
     restart: always
     networks:
       - wordpress_net
+    volumes:
+      - db:/var/lib/mysql
     environment:
       MYSQL_DATABASE: ${MYSQL_DATABASE}
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
       MYSQL_RANDOM_ROOT_PASSWORD: '1'
-    volumes:
-      - db:/var/lib/mysql
+
+  wordpress:
+      container_name: wordpress
+      image: wordpress
+      restart: always
+      ports:
+        - 8080:80
+      networks:
+        - wordpress_net
+      depends_on:
+        - db
+      volumes:
+        - wordpress:/var/www/html
+      environment:
+        WORDPRESS_DB_HOST: ${WORDPRESS_DB_HOST}
+        WORDPRESS_DB_USER: ${WORDPRESS_DB_USER}
+        WORDPRESS_DB_PASSWORD: ${WORDPRESS_DB_PASSWORD}
+        WORDPRESS_DB_NAME: ${WORDPRESS_DB_NAME}
