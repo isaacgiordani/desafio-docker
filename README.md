@@ -79,12 +79,28 @@ docker-compose down
 ```
 
 ## Redis + Redis Commander
+1 - Executar o comando para subir os containers
+
+```
+cd redis
+docker-compose up -d
+```
+
+2 - Acessar a URI no browser http://localhost:8084
 
 ## Wordpress
+1 - Executar o comando para subir os containers
+
+```
+cd wordpress
+docker-compose up -d
+```
+
+2 - Acessar a URI no browser http://localhost:8080
 
 ## 
 
-## Desprovisionar todo o ambiente
+## Desprovisionando todo o ambiente
 CUIDADO AO EXECUTAR O COMANDO, POIS EXCLUIRÁ TODAS OS CONTAINERS, IMAGENS, REDES E *VOLUMES*.
 
 ```
