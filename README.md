@@ -3,6 +3,7 @@
 ## Observações
 - O bind das portas é proposital permitindo o uso de ferramentas instaladas localmente, não se limitando ao uso da ferramenta criada no container.
 - O mapeamento dos volumes também é proposital para persistir os dados e facilitar o backup.
+- Setei uma versão específica da imagem seguindo boas práticas para a criação de containers.
 
 ## Pré requisitos
 - Ter o docker e docker-compose instalados.

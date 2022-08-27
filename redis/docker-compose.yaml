@@ -6,6 +6,7 @@ networks:
 
 volumes:
   redis_vol:
+  redis_data_vol:
 
 services:
 
@@ -20,6 +21,7 @@ services:
       - redis_net
     volumes:
       - redis_vol:/usr/local/etc/redis
+      - redis_data_vol:/data
 
   redis-commander:
       container_name: redis-commander
