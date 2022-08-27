@@ -98,7 +98,19 @@ docker-compose up -d
 
 2 - Acessar a URI no browser http://localhost:8080
 
-## 
+## Conversao-temperatura
+Comandos utilizados para construir a imagem:
+
+```
+cd conversao-temperatura
+docker build -t isaacgiordani/conversao-temperatura:v1 .
+docker login
+docker push isaacgiordani/conversao-temperatura:v1
+docker tag isaacgiordani/conversao-temperatura:v1 isaacgiordani/conversao-temperatura:latest
+docker image ls
+docker push isaacgiordani/conversao-temperatura:latest
+docker container run -d -u 1000 -p 8080:8080 --cpus="0.5" isaacgiordani/conversao-temperatura:v1
+```
 
 ## Desprovisionando todo o ambiente
 CUIDADO AO EXECUTAR O COMANDO, POIS EXCLUIRÁ TODAS OS CONTAINERS, IMAGENS, REDES E *VOLUMES*.
