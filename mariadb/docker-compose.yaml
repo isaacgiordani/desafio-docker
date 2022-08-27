@@ -30,11 +30,11 @@ services:
     container_name: phpmyadmin
     image: phpmyadmin:latest
     restart: always
-    depends_on:
-      - mariadb
     ports:
       - 8082:80
     networks:
       - mariadb_net
+    depends_on:
+      - mariadb
     environment:
       - PMA_ARBITRARY=1

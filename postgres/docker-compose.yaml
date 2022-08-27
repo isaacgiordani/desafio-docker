@@ -26,13 +26,13 @@ services:
   pgadmin:
     container_name: pgadmin
     image: dpage/pgadmin4
+    ports:
+      - 8083:80
+    networks:
+      - postgres_net
+    depends_on:
+      - postgres
     environment:
       PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
       PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
-    ports:
-      - 8083:80
-    depends_on:
-      - postgres
-    networks:
-      - postgres_net
       
