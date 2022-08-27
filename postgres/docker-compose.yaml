@@ -1,0 +1,38 @@
+version: '3.8'
+
+networks:
+  postgres_net:
+    driver: bridge
+
+volumes:
+  postgres_vol:
+
+services:
+
+  postgres:
+    container_name: postgres
+    image: postgres:14.5
+    restart: always
+    ports:
+      - 5432:5432
+    networks:
+      - postgres_net
+    volumes:
+      - postgres_vol:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      PGDATA: /var/lib/postgresql/data/pgdata
+
+  pgadmin:
+    container_name: pgadmin
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
+    ports:
+      - 8083:80
+    depends_on:
+      - postgres
+    networks:
+      - postgres_net
+      
