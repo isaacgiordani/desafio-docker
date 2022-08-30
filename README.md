@@ -125,7 +125,7 @@ docker tag isaacgiordani/conversao-distancia:v1 isaacgiordani/conversao-distanci
 docker image ls
 docker push isaacgiordani/conversao-distancia:latest
 docker-compose up -d
-http://localhost:5000/
+http://localhost:8090/
 ```
 ## Conversao-peso (ASP.NET Core)
 Comandos utilizados para construir a imagem:
@@ -144,6 +144,20 @@ http://localhost:8000/
 ```
 
 ## Rotten-Potatoes
+Comandos utilizados para construir a imagem:
+
+```
+cd rotten-potatoes/src/
+docker build -t isaacgiordani/rotten-potatoes:v1 .
+docker login
+docker push isaacgiordani/rotten-potatoes:v1
+docker tag isaacgiordani/rotten-potatoes:v1 isaacgiordani/rotten-potatoes:latest
+docker image ls
+docker push isaacgiordani/rotten-potatoes:latest
+docker-compose up -d
+http://localhost:5000/
+```
+
 
 ## Kube-news
 

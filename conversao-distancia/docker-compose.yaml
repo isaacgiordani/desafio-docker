@@ -11,6 +11,6 @@ services:
     image: isaacgiordani/conversao-distancia:v1
     restart: always
     ports:
-      - 5000:5000
+      - 8090:5000
     networks:
       - conv_dist_net
