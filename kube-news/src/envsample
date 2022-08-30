@@ -1,0 +1,7 @@
+DB_DATABASE="kubenews"
+DB_USERNAME="kubenews"
+DB_PASSWORD="Kube#123"
+DB_HOST="postgres"
+POSTGRES_PASSWORD="Kube#123"
+POSTGRES_USER="kubenews"
+POSTGRES_DB="kubenews"

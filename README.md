@@ -127,6 +127,7 @@ docker push isaacgiordani/conversao-distancia:latest
 docker-compose up -d
 http://localhost:8090/
 ```
+
 ## Conversao-peso (ASP.NET Core)
 Comandos utilizados para construir a imagem:
 
@@ -158,8 +159,8 @@ docker-compose up -d
 http://localhost:5000/
 ```
 
-
 ## Kube-news
+
 
 ## Desprovisionando todo o ambiente
 CUIDADO AO EXECUTAR O COMANDO, POIS EXCLUIRÁ TODAS OS CONTAINERS, IMAGENS, REDES E *VOLUMES*.
