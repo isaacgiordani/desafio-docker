@@ -1,0 +1,16 @@
+version: '3.8'
+
+networks:
+  conv_temp_net:
+    driver: bridge
+
+services:
+
+  conv_temp:
+    container_name: conv_temp
+    image: isaacgiordani/conversao-temperatura:v1
+    restart: always
+    ports:
+      - 8080:8080
+    networks:
+      - conv_temp_net

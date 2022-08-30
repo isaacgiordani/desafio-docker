@@ -14,4 +14,4 @@ CMD ["npm", "start"]
 # docker image ls
 # docker push isaacgiordani/conversao-temperatura:latest
 # docker container run -d -u 1000 -p 8080:8080 --cpus="0.5" isaacgiordani/conversao-temperatura:v1
-# http://localhost:8000/
+# http://localhost:8080/

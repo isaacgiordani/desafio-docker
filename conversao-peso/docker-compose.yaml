@@ -1,0 +1,16 @@
+version: '3.8'
+
+networks:
+  conv_peso_net:
+    driver: bridge
+
+services:
+
+  conv_peso:
+    container_name: conv_peso
+    image: isaacgiordani/conversao-peso:v1
+    restart: always
+    ports:
+      - 8000:80
+    networks:
+      - conv_peso_net
