@@ -6,10 +6,12 @@ WORKDIR /app
 COPY . /app
 CMD ["gunicorn", "--bind", "0.0.0.0:5000", "-c", "app.py", "app:app"]
 
+# cd conversao-distancia
 # docker build -t isaacgiordani/conversao-distancia:v1 .
 # docker login
 # docker push isaacgiordani/conversao-distancia:v1
 # docker tag isaacgiordani/conversao-distancia:v1 isaacgiordani/conversao-distancia:latest
 # docker image ls
 # docker push isaacgiordani/conversao-distancia:latest
-# docker container run -d -u 1000 -p 5000:5000 --cpus="0.5" isaacgiordani/conversao-distancia:v1
+# docker-compose up -d
+# http://localhost:5000/

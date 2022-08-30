@@ -19,10 +19,13 @@ WORKDIR /app
 COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "ConversaoPeso.Web.dll"]
 
+# cd conversao-peso/src/
 # docker build -t isaacgiordani/conversao-peso:v1 .
 # docker login
 # docker push isaacgiordani/conversao-peso:v1
 # docker tag isaacgiordani/conversao-peso:v1 isaacgiordani/conversao-peso:latest
 # docker image ls
 # docker push isaacgiordani/conversao-peso:latest
-# docker container run -d -u 1000 -p 8000:80 --cpus="0.5" isaacgiordani/conversao-peso:v1
+# cd conversao-peso/
+# docker-compose up -d
+# http://localhost:8000/

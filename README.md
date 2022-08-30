@@ -1,10 +1,5 @@
 # Desafio Docker Devops Pro
 
-## Observações
-- O bind das portas é proposital permitindo o uso de ferramentas instaladas localmente, não se limitando ao uso da ferramenta criada no container.
-- O mapeamento dos volumes também é proposital para persistir os dados e facilitar o backup.
-- Setei uma versão específica da imagem seguindo boas práticas para a criação de containers.
-
 ## Pré requisitos
 - Ter o docker e docker-compose instalados.
 - Não ter nenhum outro serviço rodando nas portas utilizadas.
@@ -41,7 +36,13 @@ docker-compose up -d
 
 3 - Acessar a URI no browser http://localhost:8082/
 
-4 - Para desprovisionar
+4 - Para acessar
+
+Servidor: mariadb
+Utilizador: root
+Palavra Passe: examplepassroot
+
+5 - Para desprovisionar
 
 ```
 cd mariadb
@@ -98,7 +99,7 @@ docker-compose up -d
 
 2 - Acessar a URI no browser http://localhost:8080
 
-## Conversao-temperatura
+## Conversao-temperatura (Aplicação escrita em NodeJS)
 Comandos utilizados para construir a imagem:
 
 ```
@@ -109,8 +110,42 @@ docker push isaacgiordani/conversao-temperatura:v1
 docker tag isaacgiordani/conversao-temperatura:v1 isaacgiordani/conversao-temperatura:latest
 docker image ls
 docker push isaacgiordani/conversao-temperatura:latest
-docker container run -d -u 1000 -p 8080:8080 --cpus="0.5" isaacgiordani/conversao-temperatura:v1
+docker-compose up -d
+http://localhost:8080/
 ```
+## Conversao-distancia (Aplicação escrita em Python utilizando Flask Aplicação escrita em C# utilizando)
+Comandos utilizados para construir a imagem:
+
+```
+cd conversao-distancia
+docker build -t isaacgiordani/conversao-distancia:v1 .
+docker login
+docker push isaacgiordani/conversao-distancia:v1
+docker tag isaacgiordani/conversao-distancia:v1 isaacgiordani/conversao-distancia:latest
+docker image ls
+docker push isaacgiordani/conversao-distancia:latest
+docker-compose up -d
+http://localhost:5000/
+```
+## Conversao-peso (ASP.NET Core)
+Comandos utilizados para construir a imagem:
+
+```
+cd conversao-peso/src/
+docker build -t isaacgiordani/conversao-peso:v1 .
+docker login
+docker push isaacgiordani/conversao-peso:v1
+docker tag isaacgiordani/conversao-peso:v1 isaacgiordani/conversao-peso:latest
+docker image ls
+docker push isaacgiordani/conversao-peso:latest
+cd conversao-peso/
+docker-compose up -d
+http://localhost:8000/
+```
+
+## Rotten-Potatoes
+
+## Kube-news
 
 ## Desprovisionando todo o ambiente
 CUIDADO AO EXECUTAR O COMANDO, POIS EXCLUIRÁ TODAS OS CONTAINERS, IMAGENS, REDES E *VOLUMES*.

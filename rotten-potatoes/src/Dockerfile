@@ -5,6 +5,7 @@ RUN pip install -r requirements.txt
 COPY . /app
 CMD ["gunicorn", "--bind", "0.0.0.0:5000", "-c", "config.py", "app:app"]
 
+# cd rotten-potatoes/src/
 # docker build -t isaacgiordani/rotten-potatoes:v1 .
 # docker login
 # docker push isaacgiordani/rotten-potatoes:v1
