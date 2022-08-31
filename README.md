@@ -145,6 +145,16 @@ http://localhost:8000/
 ```
 
 ## Rotten-Potatoes
+
+1 - Criar o arquivo .env com usuário e senha desejada com base no arquivo envsample
+
+2 - Executar o comando para subir os containers
+
+```
+cd rotten-potatoes/src/
+docker-compose up -d
+```
+
 Comandos utilizados para construir a imagem:
 
 ```
@@ -160,10 +170,31 @@ http://localhost:5000/
 ```
 
 ## Kube-news
+1 - Criar o arquivo .env com usuário e senha desejada com base no arquivo envsample
 
+2 - Executar o comando para subir os containers
+
+```
+cd kube-news/src/
+docker-compose up -d
+```
+
+Comandos utilizados para construir a imagem:
+
+```
+cd kube-news/src
+docker build -t isaacgiordani/kube-news:v1 .
+docker login
+docker push isaacgiordani/kube-news:v1
+docker tag isaacgiordani/kube-news:v1 isaacgiordani/kube-news:latest
+docker image ls
+docker push isaacgiordani/kube-news:latest
+docker-compose up -d
+http://localhost:8080/
+```
 
 ## Desprovisionando todo o ambiente
-CUIDADO AO EXECUTAR O COMANDO, POIS EXCLUIRÁ TODAS OS CONTAINERS, IMAGENS, REDES E *VOLUMES*.
+CUIDADO AO EXECUTAR O COMANDO, POIS EXCLUIRÁ TODOS OS CONTAINERS, IMAGENS, REDES E *VOLUMES*.
 
 ```
 sudo sh docker-clear.sh
