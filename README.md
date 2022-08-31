@@ -1,7 +1,7 @@
 # Desafio Docker Devops Pro
 
 ## Pré requisitos
-- Ter o docker e docker-compose instalados.
+- Ter o docker e docker compose instalados.
 - Não ter nenhum outro serviço rodando nas portas utilizadas.
 
 
@@ -12,7 +12,7 @@
 
 ```
 cd mongo
-docker-compose up -d
+docker compose up -d
 ```
 
 3 - Acessar a URI no browser http://localhost:8081/
@@ -21,7 +21,7 @@ docker-compose up -d
 
 ```
 cd mongo
-docker-compose down
+docker compose down
 ```
 
 ## MariaDB + PhpMyAdmin
@@ -31,22 +31,24 @@ docker-compose down
 
 ```
 cd mariadb
-docker-compose up -d
+docker compose up -d
 ```
 
 3 - Acessar a URI no browser http://localhost:8082/
 
 4 - Para acessar
 
-Servidor: mariadb
-Utilizador: root
-Palavra Passe: examplepassroot
+    Servidor: mariadb
+
+    Utilizador: root
+
+    Palavra Passe: examplepassroot
 
 5 - Para desprovisionar
 
 ```
 cd mariadb
-docker-compose down
+docker compose down
 ```
 
 ## PostgreSQL + PgAdmin
@@ -56,7 +58,7 @@ docker-compose down
 
 ```
 cd postgres
-docker-compose up -d
+docker compose up -d
 ```
 
 3 - Acessar a URI no browser http://localhost:8083
@@ -76,7 +78,7 @@ docker-compose up -d
 
 ```
 cd postgres
-docker-compose down
+docker compose down
 ```
 
 ## Redis + Redis Commander
@@ -84,7 +86,7 @@ docker-compose down
 
 ```
 cd redis
-docker-compose up -d
+docker compose up -d
 ```
 
 2 - Acessar a URI no browser http://localhost:8084
@@ -94,7 +96,7 @@ docker-compose up -d
 
 ```
 cd wordpress
-docker-compose up -d
+docker compose up -d
 ```
 
 2 - Acessar a URI no browser http://localhost:8080
@@ -110,7 +112,7 @@ docker push isaacgiordani/conversao-temperatura:v1
 docker tag isaacgiordani/conversao-temperatura:v1 isaacgiordani/conversao-temperatura:latest
 docker image ls
 docker push isaacgiordani/conversao-temperatura:latest
-docker-compose up -d
+docker compose up -d
 http://localhost:8080/
 ```
 ## Conversao-distancia (Aplicação escrita em Python utilizando Flask Aplicação escrita em C# utilizando)
@@ -124,7 +126,7 @@ docker push isaacgiordani/conversao-distancia:v1
 docker tag isaacgiordani/conversao-distancia:v1 isaacgiordani/conversao-distancia:latest
 docker image ls
 docker push isaacgiordani/conversao-distancia:latest
-docker-compose up -d
+docker compose up -d
 http://localhost:8090/
 ```
 
@@ -140,7 +142,7 @@ docker tag isaacgiordani/conversao-peso:v1 isaacgiordani/conversao-peso:latest
 docker image ls
 docker push isaacgiordani/conversao-peso:latest
 cd conversao-peso/
-docker-compose up -d
+docker compose up -d
 http://localhost:8000/
 ```
 
@@ -152,7 +154,7 @@ http://localhost:8000/
 
 ```
 cd rotten-potatoes/src/
-docker-compose up -d
+docker compose up -d
 ```
 
 Comandos utilizados para construir a imagem:
@@ -165,7 +167,7 @@ docker push isaacgiordani/rotten-potatoes:v1
 docker tag isaacgiordani/rotten-potatoes:v1 isaacgiordani/rotten-potatoes:latest
 docker image ls
 docker push isaacgiordani/rotten-potatoes:latest
-docker-compose up -d
+docker compose up -d
 http://localhost:5000/
 ```
 
@@ -176,7 +178,7 @@ http://localhost:5000/
 
 ```
 cd kube-news/src/
-docker-compose up -d
+docker compose up -d
 ```
 
 Comandos utilizados para construir a imagem:
@@ -189,7 +191,7 @@ docker push isaacgiordani/kube-news:v1
 docker tag isaacgiordani/kube-news:v1 isaacgiordani/kube-news:latest
 docker image ls
 docker push isaacgiordani/kube-news:latest
-docker-compose up -d
+docker compose up -d
 http://localhost:8080/
 ```
 
