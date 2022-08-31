@@ -91,6 +91,13 @@ docker compose up -d
 
 2 - Acessar a URI no browser http://localhost:8084
 
+3 - Para desprovisionar
+
+```
+cd redis
+docker compose down
+```
+
 ## Wordpress
 1 - Executar o comando para subir os containers
 
@@ -100,6 +107,13 @@ docker compose up -d
 ```
 
 2 - Acessar a URI no browser http://localhost:8080
+
+3 - Para desprovisionar
+
+```
+cd wordpress
+docker compose down
+```
 
 ## Conversao-temperatura (Aplicação escrita em NodeJS)
 Comandos utilizados para construir a imagem:
